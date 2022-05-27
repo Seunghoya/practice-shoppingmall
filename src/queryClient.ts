@@ -60,7 +60,8 @@ export const fetcher = async ({
     const res = await fetch(url, options)
     const json = res.json();
     return json
-  } catch (err) {
+  } 
+  catch (err) {
     console.error(err)
   }
 }
