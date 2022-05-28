@@ -9,11 +9,14 @@ export const ProductList = () => {
   )
   
   return (
-    <ul className='products'>
-      {data?.products?.map(product => (
-        <ProductItem {...product} key={product.id} />
-      ))}
-    </ul>
+    <>
+    <h2>상품목록</h2>
+      <ul className='products'>
+        {data?.products?.map(product => (
+          <ProductItem {...product} key={product.id} />
+        ))}
+      </ul>
+    </>
   )
 }
 

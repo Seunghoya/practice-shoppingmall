@@ -46,7 +46,7 @@ export const restFetcher = async ({
       method: method,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'SERVER_URL'
+        'Access-Control-Allow-Origin': SERVER_URL
       }
     }
 

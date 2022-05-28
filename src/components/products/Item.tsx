@@ -19,7 +19,9 @@ export const  ProductItem = ({
       <img className="product-item__image" src={imageUrl} alt={title}/>
       <p className="product-item__description">{description}</p>
       {/* <p className="product-item__rating">{rating.rate}</p> */}
+
       </Link>
+      <button className="product-item__add-cart">담기</button>
     </li>
   )
 }
