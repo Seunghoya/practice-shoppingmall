@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './app'
 import './scss/index.scss'
 import { worker } from './mocks/browser'
-
+import { RecoilRoot } from 'recoil';
 if (import.meta.env.DEV) {
   worker.start()
 }
@@ -12,7 +12,9 @@ if (import.meta.env.DEV) {
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <RecoilRoot>
+        <App />
+      </RecoilRoot>
     </BrowserRouter>
   </React.StrictMode>
 )
