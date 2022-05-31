@@ -71,5 +71,6 @@ export const graphqlFetcher = (query: RequestDocument, variables = {}) =>
   request(SERVER_URL, query, variables)
 
 export const QueryKeys = {
-  PRODUCTS: "PRODUCTS"
+  PRODUCTS: "PRODUCTS",
+  CART: "CART"
 }

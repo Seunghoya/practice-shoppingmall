@@ -1,10 +1,16 @@
-import React from 'react';
+import { useQuery } from "react-query"
+import { GET_CART, CartType } from "../../graphql/cart"
+import { graphqlFetcher, QueryKeys } from '../../queryClient'
+import { CartList } from '../../components/cart/index'
 
 export const Cart = () => {
+  const { data } = useQuery(QueryKeys.CART, () => graphqlFetcher(GET_CART))
+  const cartItems = Object.values(data) as CartType[]
 
+  console.log(cartItems)
   return (
     <>
-      장바구니
+      <CartList items={cartItems}/>
     </>
   )
 }
