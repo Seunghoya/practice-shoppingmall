@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom"
 import { useRecoilState } from "recoil"
 import { cartItemSelector } from "../../recoil/cart"
-import { Product } from "../graphql/products"
+import { Product } from "../../graphql/products"
 export const  ProductItem = ({ 
   id,
   imageUrl,
