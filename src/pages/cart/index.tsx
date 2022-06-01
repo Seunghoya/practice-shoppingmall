@@ -5,9 +5,11 @@ import { CartList } from '../../components/cart/index'
 
 export const Cart = () => {
   const { data } = useQuery(QueryKeys.CART, () => graphqlFetcher(GET_CART))
-  const cartItems = Object.values(data) as CartType[]
+  const cartItems = Object.values(data || {}) as CartType[]
+  console.log(data)
+  if (!cartItems.length) return <div>장바구니가 비었어요</div>
 
-  console.log(cartItems)
+  
   return (
     <>
       <CartList items={cartItems}/>
