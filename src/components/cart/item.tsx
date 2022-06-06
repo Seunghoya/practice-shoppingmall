@@ -56,15 +56,18 @@ export const CartItem = ({ id, imageUrl, price, title, amount }: CartType) => {
   }
 
   return (
-    <ul>
-      <h3>{title}</h3>
-      <img src={imageUrl} />
-      <p>{price}</p>
+    <li className="cart-item">
+      <input type="checkbox" />
+      <h3 className="cart-item__title">{title}</h3>
+      <img className="cart-item__image" src={imageUrl} />
+      <p className="cart-item__price">{price}</p>
       <input 
-        type="number" 
+        type="number"
+        className="cart-item__amount" 
         value={amount} 
         min={1}
         onChange={handlersUpdateAmount}/>
-    </ul>
+      <button className="cart-item__button" type="button" >삭제</button>  
+    </li>
   )
 }
