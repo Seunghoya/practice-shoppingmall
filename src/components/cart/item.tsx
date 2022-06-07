@@ -67,7 +67,7 @@ export const CartItem = ({ id, imageUrl, price, title, amount }: CartType) => {
 
   return (
     <li className="cart-item">
-      <input type="checkbox" />
+      <input className="cart-item__checkbox" type="checkbox" name={`select-item_${id}`}/>
       <h3 className="cart-item__title">{title}</h3>
       <img className="cart-item__image" src={imageUrl} />
       <p className="cart-item__price">{price}</p>
