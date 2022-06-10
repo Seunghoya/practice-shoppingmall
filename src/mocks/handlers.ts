@@ -1,6 +1,7 @@
 import { graphql } from 'msw'
 import { GET_PRODUCTS, GET_PRODUCT } from '../graphql/products'
 import { ADD_CART, GET_CART, CartType, UPDATE_CART, DELETE_CART } from '../graphql/cart';
+import { EXECUTE_PAY } from '../graphql/payment'
 
 const mock_products = Array.from({ length: 20 }).map((_, i) => ({
   id: i + 1 + "",
@@ -72,5 +73,10 @@ export const handlers = [
     delete newData[id]
     cartData = newData;
     return res(ctx.data(id));
-  })
+  }),
+
+  graphql.mutation(EXECUTE_PAY, ({ variables }, res, ctx) => {
+    console.log(variables)
+    return res()
+  }),
 ];
