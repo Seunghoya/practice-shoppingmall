@@ -13,7 +13,6 @@ export const routes = [
     children: [
       { path: '/', element: <Index />, index: true},
       { path: '/cart', element: <CartIndex />, index: true},
-      { path: '/gnb', element: <Gnb />, },
       { path: '/products', element: <ProductsIndex />, index: true},
       { path: '/products/:id', element: <ProductsId />, },
       { path: '/payment', element: <PaymentPage />, index: true },
