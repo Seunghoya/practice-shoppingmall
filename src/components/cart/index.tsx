@@ -44,6 +44,7 @@ export const CartList = ({ items }: { items: CartType[] }) => {
   const handleSubmit = () => {
     if (checkedCartData.length) {
       navigate('/payment')
+      console.log('클릭이벤트')
     } else {
       alert('결제할 대상이 없어요')
     }

@@ -1,7 +1,5 @@
 
 import { Link } from "react-router-dom"
-import { useRecoilState } from "recoil"
-import { cartItemSelector } from "../../recoil/cart"
 import { Product } from "../../graphql/products"
 import { useMutation } from "react-query"
 import { graphqlFetcher } from "../../queryClient"
@@ -12,8 +10,6 @@ export const  ProductItem = ({
   imageUrl,
   price,
   title,
-  description,
-  createdAt,
 }: Product) => {
 
   // const [cartAmount, setCartAmount] = useRecoilState(cartItemSelector(id))
@@ -28,7 +24,7 @@ export const  ProductItem = ({
       {/* <p className="product-item__category">{category}</p> */}
       <p className="product-item__price">₩ {price}</p>
       <img className="product-item__image" src={imageUrl} alt={title}/>
-      <p className="product-item__description">{description}</p>
+      {/* <p className="product-item__description">{description}</p> */}
       {/* <p className="product-item__rating">{rating.rate}</p> */}
       </Link>
       <button className="product-item__add-cart" onClick={() => addCart(id)}>담기</button>
@@ -36,14 +32,6 @@ export const  ProductItem = ({
     </li>
   )
 }
-
-
-
-
-
-
-
-
 
 
 

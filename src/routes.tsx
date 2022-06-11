@@ -23,7 +23,6 @@ export const routes = [
 export const pages = [
   { route: '/' },
   { route: '/cart' },
-  { route: '/gnb' },
   { route: '/products' },
   { route: '/products/:id' },
   { route: '/payment' },

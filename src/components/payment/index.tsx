@@ -21,7 +21,7 @@ const Payment = () => {
   const { mutate: executePay } = useMutation((payInfos: PaymentInfos) =>
     graphqlFetcher(EXECUTE_PAY, payInfos),
   )
-
+  
   const showModal = () => {
     toggleModal(true)
   }

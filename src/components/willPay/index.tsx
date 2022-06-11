@@ -4,13 +4,7 @@ import { useRecoilValue } from 'recoil'
 import { checkedCartState } from '../../recoil/cart'
 import ItemData from '../cart/itemData'
 
-const WillPay = ({
-  submitTitle,
-  handleSubmit,
-}: {
-  submitTitle: string
-  handleSubmit: (e: SyntheticEvent) => void
-}) => {
+const WillPay = ({ submitTitle, handleSubmit,}: { submitTitle: string, handleSubmit: (e: SyntheticEvent) => void }) => {
   const checkedItems = useRecoilValue(checkedCartState)
   const totalPrice = checkedItems.reduce((res, { price, amount }) => {
     res += price * amount
