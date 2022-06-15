@@ -2,8 +2,8 @@ import express from "express";
 import { ApolloServer } from "apollo-server-express"
 import schema from "./schema";
 import resolvers from "./resolvers";
-import { DBField, readDB } from './dbController'
-
+import { DBField, readDB } from './dbController';
+import cors from "cors";
 
 const port = 8000;
 
@@ -20,14 +20,16 @@ const port = 8000;
   })
 
   const app = express()
+  const corsOptions = {
+    origin: ['http://localhost:3000', 'https://studio.apollographql.com'],
+    credentials: true, 
+  };
+  
   await server.start()
   server.applyMiddleware({
     app,
     path: '/graphql',
-    // cors: {
-    //   origin: ['http://localhost:3000', 'https://studio.apollographql.com/'],
-    //   credentials: true
-    // }
+    cors: corsOptions
   })
 
   await app.listen({ port: port })
