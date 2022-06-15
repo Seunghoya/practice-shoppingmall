@@ -1,13 +1,7 @@
 import request, { RequestDocument } from 'graphql-request';
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from 'react-query'
+import { QueryClient } from 'react-query'
 
-const SERVER_URL = '/'
+const SERVER_URL = 'http://localhost:8000/graphql'
 
 export const getClient = (() => {
   let client : QueryClient | null = null;
@@ -28,7 +22,7 @@ export const getClient = (() => {
     return client
   }
 })()
-
+/*
 export const restFetcher = async ({
   method,
   path,
@@ -66,7 +60,7 @@ export const restFetcher = async ({
     console.error(err)
   }
 }
-
+*/
 export const graphqlFetcher = (query: RequestDocument, variables = {}) => 
   request(SERVER_URL, query, variables)
 
