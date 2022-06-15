@@ -1,9 +1,7 @@
 import express from "express";
-import { ApolloServer, ExpressContext } from "apollo-server-express"
-import { Config } from 'apollo-server-core';
-import schema from "../schema";
-import resolvers from "../resolvers";
-
+import { ApolloServer } from "apollo-server-express"
+import schema from "./schema";
+import resolvers from "./resolvers";
 
 const port = 8000;
 
@@ -11,8 +9,7 @@ const port = 8000;
   const server = new ApolloServer({
     typeDefs: schema,
     resolvers,
-    context: {}
-
+    // context: {}
   })
 
   const app = express()
@@ -21,12 +18,11 @@ const port = 8000;
     app,
     path: '/graphql',
     cors: {
-      origin: ['http://localhost:3000', 'https://studio.apollographql.com/sandbox'],
+      origin: ['http://localhost:3000', 'https://studio.apollographql.com/'],
       credentials: true
     }
   })
 
   await app.listen({ port: port })
-
   console.log(`server started on port ${port}`)
 })()
