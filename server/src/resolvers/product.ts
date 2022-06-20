@@ -1,5 +1,8 @@
-import { Resolver } from './types'
+import { Products, Resolver } from './types'
+import { v4 as uuid } from 'uuid'
+import { DBField, writeDB } from '../dbController'
 
+const setJSON = (data: Products) => writeDB(DBField.PRODUCTS, data)
 // https://www.apollographql.com/docs/apollo-server/data/resolvers
 // const mockProducts = (() =>
 //   Array.from({ length: 20 }).map((_, i) => ({
@@ -13,8 +16,9 @@ import { Resolver } from './types'
 
 const productResolver: Resolver = {
   Query: {
-    products: (parent, args, { db }) => {
-      return db.products
+    products: (parent, { cursor = '' }, { db }) => {
+      const fromIndex = db.products.findIndex(product => product.id === cursor) + 1
+      return db.products.slice(fromIndex, fromIndex + 15) || []
     },
     product: (parent, { id }, { db }) => {
       const found = db.products.find(item => item.id === id)
@@ -22,5 +26,6 @@ const productResolver: Resolver = {
       return null
     },
   },
+  
 }
 export default productResolver

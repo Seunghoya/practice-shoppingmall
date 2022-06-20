@@ -10,7 +10,7 @@ const productSchema = gql`
     createdAt: Float    # 그래프QL에선 Int가 13자리까지라 createdAt에는 Float 타입을 적용
   }
   extend type Query {
-    products: [Product!]
+    products(cursor: ID): [Product!]
     product(id: ID!): Product!
   }
 `
