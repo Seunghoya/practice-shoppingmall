@@ -1,4 +1,4 @@
-import request, { RequestDocument } from 'graphql-request';
+import { request, RequestDocument } from 'graphql-request';
 import { QueryClient } from 'react-query'
 
 const SERVER_URL = 'http://localhost:8000/graphql'
