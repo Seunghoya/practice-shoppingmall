@@ -5,6 +5,7 @@ import Gnb from './pages/gnb';
 import ProductsIndex from './pages/products/index';
 import ProductsId from './pages/products/[id]';
 import PaymentPage from './pages/payment/index';
+import AdminIndex from './pages/admin/index';
 
 export const routes = [
   {
@@ -16,6 +17,7 @@ export const routes = [
       { path: '/products', element: <ProductsIndex />, index: true},
       { path: '/products/:id', element: <ProductsId />, },
       { path: '/payment', element: <PaymentPage />, index: true },
+      { path: '/admin', element: <AdminIndex />, index: true },
     ]
   }
 ]

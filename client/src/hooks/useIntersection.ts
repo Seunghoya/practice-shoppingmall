@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect, useRef, useState } from 'react'
 
-const useIntersection = (targetRef: RefObject<HTMLElement>) => {
+export const useIntersection = (targetRef: RefObject<HTMLElement>) => {
   const observerRef = useRef<IntersectionObserver>()
   const [intersecting, setIntersecting] = useState(false)
 
@@ -20,4 +20,3 @@ const useIntersection = (targetRef: RefObject<HTMLElement>) => {
   return intersecting
 }
 
-export default useIntersection
