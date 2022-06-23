@@ -1,7 +1,7 @@
 import { SyntheticEvent } from 'react'
 import { useMutation } from 'react-query'
 import { Link } from 'react-router-dom'
-import { MutableProduct, Product, UPDATE_PRODUCT } from '../../graphql/products'
+import { MutableProduct, Product, UPDATE_PRODUCT, DELETE_PRODUCT } from '../../graphql/products'
 import { getClient, graphqlFetcher, QueryKeys } from '../../queryClient'
 import { arrToObj } from '../../util/arrToObj'
 
@@ -34,6 +34,22 @@ export const AdminItem = ({
       },
     },
   )
+  const { mutate: deleteProduct } = useMutation(
+    ({ id } : { id: String }) =>
+      graphqlFetcher(DELETE_PRODUCT, { id }),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(QueryKeys.PRODUCTS, {
+          exact: false,
+          refetchInactive: true,
+        })
+      },
+    },
+  )
+
+  const deleteItem = () => {
+    deleteProduct({ id })
+  }
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault()
@@ -72,6 +88,9 @@ export const AdminItem = ({
       {!createdAt && <span>삭제된 상품</span>}
       <button className="product-item__add-cart" onClick={startEdit}>
         수정
+      </button>
+      <button className="product-item__delete-cart" onClick={deleteItem}>
+        삭제
       </button>
     </li>
   )
